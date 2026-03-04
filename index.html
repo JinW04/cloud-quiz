@@ -7,11 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="quiz-container">
+    <!-- Quiz name input -->
+<div id="welcome-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Welcome to Jin's Quiz!</h2>
+            <p>Please choose a nickname</p>
+            <input type="text" id="nickname-input" placeholder="Type here and press Enter..." autocomplete="off">
+            <br>
+            <button id="guest-btn" class="text-btn">Play as a guest</button>
+        </div>
+    </div>
+    <!-- Placeholdr -->
+    <div class="quiz-container blurred" id="main-quiz">
         <div id="question-container">
-            <h2 id="question">Loading questions</h2>
+            <h2 id="question">Loading...</h2>
             <div id="answer-buttons" class="btn-grid"></div>
-            <h1>TESTING AUTOMATION</h1>
         </div>
         <button id="next-btn" class="hide">Next question</button>
     </div>
