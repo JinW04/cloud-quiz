@@ -1,0 +1,19 @@
+name: Deploy Website to Azure
+
+on:
+  push:
+    branches:
+      - main  # Runs every time you push to the main branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Upload to Azure Storage
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az storage blob upload-batch --account-name quizstoragejin --auth-mode key --connection-string "${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}" -d '$web' -s .
