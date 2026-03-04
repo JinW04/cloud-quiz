@@ -27,7 +27,7 @@ function unlockQuiz(name) {
     startQuiz(); 
 }
 
-// EventListener for when the user enters a nickname or selects to play as a gues
+// EventListener for when the user enters a nickname or selects to play as a guest
 nicknameInput.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
         const enteredName = nicknameInput.value.trim();
@@ -101,7 +101,7 @@ function resetState() {
     }
 }
 
-// Checks answer, updates button color and shows next btton
+// Checks answer, updates button color and shows next button
 function selectAnswer(e) {
     const selectedButton = e.target; 
     const isCorrect = selectedButton.dataset.correct === "true"; 
