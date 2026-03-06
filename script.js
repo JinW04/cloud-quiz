@@ -178,6 +178,7 @@ function showQuestion() {
 // Clears out the old answer buttons and hides the "Next" button.
 function resetState() {
     nextButton.style.display = "none";
+    feedbackElement.innerHTML = "";
     while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
     }
@@ -191,8 +192,20 @@ function selectAnswer(e) {
     if (isCorrect) {
         selectedButton.classList.add("correct");
         score++; 
+        
+        // Show "Correct" message in green
+        feedbackElement.innerHTML = "Correct!";
+        feedbackElement.style.color = "#26890c"; 
     } else {
         selectedButton.classList.add("wrong");
+        
+        // Finds correct answer in the data
+        const currentAnswers = questions[currentQuestionIndex].answers;
+        const correctAnswer = currentAnswers.find(ans => ans.correct === true);
+        
+        // Show "Incorrect message" in red
+        feedbackElement.innerHTML = `Incorrect! The correct answer is: ${correctAnswer.text}`;
+        feedbackElement.style.color = "#e21b3c"; 
     }
 
     Array.from(answerButtons.children).forEach(button => {
@@ -226,3 +239,5 @@ function shuffleArray(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
+
+const feedbackElement = document.getElementById("feedback-text");
