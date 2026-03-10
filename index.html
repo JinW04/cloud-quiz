@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cloud-Native Quiz</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+<div id="visitor-box">
+    Visitors: <span id="visit-count">...</span>
+</div>
     <!-- Username input -->
 <div id="welcome-modal" class="modal-overlay">
         <div class="modal-content">
@@ -20,6 +25,7 @@
     <!-- Placeholder -->
     <div class="quiz-container blurred" id="main-quiz">
         <div id="question-container">
+            <div id="timer-display">Time Left: <span id="time-left">20</span>s</div>
             <h2 id="question">Loading...</h2>
             <h2 id="feedback-text"></h2>
             <div id="answer-buttons" class="btn-grid"></div>

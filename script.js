@@ -7,6 +7,9 @@ const welcomeModal = document.getElementById("welcome-modal");
 const mainQuiz = document.getElementById("main-quiz");
 const nicknameInput = document.getElementById("nickname-input");
 const guestBtn = document.getElementById("guest-btn");
+const timeElement = document.getElementById("time-left");
+let timerInterval;
+let timeLeft;
 let playerName = ""; 
 
 // Randomly generated names
@@ -156,8 +159,39 @@ function startQuiz() {
     showQuestion();
 }
 
+// Countdown timer
+function startTimer() {
+    timeLeft = 20;
+    timeElement.innerText = timeLeft;
+    
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        timeElement.innerText = timeLeft;
+
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            
+            // Shows the "Ran out of time" message
+            feedbackElement.innerHTML = "You ran out of time!";
+            feedbackElement.style.color = "#e21b3c"; 
+
+            // Reveal the correct answer and disable all buttons so they can't click late
+            Array.from(answerButtons.children).forEach(button => {
+                if (button.dataset.correct === "true") {
+                    button.classList.add("correct");
+                }
+                button.disabled = true;
+            });
+
+            // Shows the next button
+            nextButton.style.display = "block";
+        }
+    }, 1000);
+}
+
 // Displays question and creates the 4 answer buttons.
 function showQuestion() {
+    clearInterval(timerInterval);
     resetState(); 
     let currentQuestion = questions[currentQuestionIndex];
     questionElement.innerHTML = currentQuestion.question;
@@ -173,6 +207,7 @@ function showQuestion() {
         button.addEventListener("click", selectAnswer);
         answerButtons.appendChild(button); 
     });
+    startTimer();
 }
 
 // Clears out the old answer buttons and hides the "Next" button.
@@ -186,6 +221,7 @@ function resetState() {
 
 // Checks answer, updates button color and shows next button
 function selectAnswer(e) {
+    clearInterval(timerInterval);
     const selectedButton = e.target; 
     const isCorrect = selectedButton.dataset.correct === "true"; 
     
@@ -241,3 +277,20 @@ function shuffleArray(array) {
 }
 
 const feedbackElement = document.getElementById("feedback-text");
+
+function updateVisitorCount() {
+    const countElement = document.getElementById("visit-count");
+    const myAzureBackendUrl = "https://jin-backend-oslo01-c9bufqftdtajduap.swedencentral-01.azurewebsites.net/api/UpdateVisitorCount"; 
+
+    fetch(myAzureBackendUrl)
+        .then(response => response.json())
+        .then(data => {
+            countElement.innerText = data.count;
+        })
+        .catch(error => {
+            console.error("Backend error:", error);
+            countElement.innerText = "0"; // Fallback to 0 if it fails
+        });
+}
+
+updateVisitorCount();
