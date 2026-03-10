@@ -264,7 +264,13 @@ nextButton.addEventListener("click", () => {
         resetState(); 
         nextButton.innerHTML = "Play Again"; 
         nextButton.style.display = "block";
-        nextButton.addEventListener("click", startQuiz); 
+        
+        // Uses one-time click or just checks the text
+        nextButton.onclick = () => {
+            nextButton.innerHTML = "Next question";
+            nextButton.onclick = null;
+            startQuiz();
+        };
     }
 });
 
