@@ -48,12 +48,14 @@ body {
 }
 
 .modal-content {
-    background-color: #9cd5fb;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 40px;
-    border-radius: 15px;
-    border: 2px solid #333; /* Smooth edges */
+    border-radius: 20px;
     text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
     width: 90%;
     max-width: 400px;
 }
@@ -164,12 +166,15 @@ body {
    Responsive feature
    ========================================== */
 #main-quiz {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     width: 90%;
     max-width: 850px;
-    background: white;
     padding: clamp(15px, 3vh, 40px) clamp(20px, 5vw, 40px); 
-    border-radius: 15px;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 20px 32px 20px rgba(0, 0, 0, 0.2);
 }
 
 #question {
@@ -184,13 +189,20 @@ body {
 .btn {
     color: white;
     font-weight: bold;
-    border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: transform 0.1s;
     min-height: clamp(70px, 15vh, 120px); 
     font-size: clamp(1.1rem, 2.5vw, 1.5rem);
     padding: clamp(10px, 2vh, 20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: brightness(1.1);
+}
+
+#question, .modal-content h2 {
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* ==========================================

@@ -79,10 +79,10 @@ const questions = [
         {
                 question: "How many cards are in a standard deck of playing cards?",
         answers: [
-            {text: "30", correct: false},
-            {text: "28", correct: false},
-            {text: "32", correct: true},
-            {text: "34", correct: false}
+            {text: "50", correct: false},
+            {text: "48", correct: false},
+            {text: "52", correct: true},
+            {text: "54", correct: false}
         ]
     },
         {
