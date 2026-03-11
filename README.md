@@ -29,13 +29,13 @@ To stay organized, I mapped out the project into 5 distinct phases. This helped 
 
 ### Visual Roadmap
 <p align="center">
-  <img src="./images/timeline2.PNG" width="90%" alt="Visual Roadmap Timeline">
+  <img src="./images/timeline2.PNG" width="100%" alt="Visual Roadmap Timeline">
   <br>
 </p>
 
 ### Detailed Task Breakdown
 <p align="center">
-  <img src="./images/timeline1.PNG" width="90%" alt="Detailed Task List">
+  <img src="./images/timeline1.PNG" width="100%" alt="Detailed Task List">
   <br>
 </p>
 
