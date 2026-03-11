@@ -26,6 +26,7 @@ A sleek, responsive web-based quiz game featuring a serverless backend and real-
 
 ## 🗓️ Development Timeline
 To stay organized, I mapped out the project into 5 distinct phases. This helped me track my progress from initial UI design to the finalization of the project.
+Initially it was going to take 3 weeks, but it was finalized on the first half of the second week. Changes might occur in the future for this project.
 
 ### Visual Roadmap
 <p align="center">
