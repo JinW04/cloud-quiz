@@ -3,9 +3,7 @@
 A sleek, responsive web-based quiz game featuring a serverless backend and real-time visitor tracking.
 
 ## 🚀 Live Demo
-<a href="https://quizstoragejin.z1.web.core.windows.net/" target="_blank" rel="noopener noreferrer">
-   Live Demo
-</a>
+[![Live Demo](https://img.shields.io/badge/Demo-Live_Project-brightgreen?style=for-the-badge&logo=microsoftazure)](https://quizstoragejin.z1.web.core.windows.net/)
 
 ## ✨ Features
 - **Dynamic Quiz Engine:** Randomized questions with a 20-second countdown timer.
